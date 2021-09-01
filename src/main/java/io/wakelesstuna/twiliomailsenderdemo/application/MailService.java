@@ -25,7 +25,7 @@ public class MailService {
 
     public void sendCreateAccountMail(AppUser appUser) {
         CreateAccountPayLoad payload = new CreateAccountPayLoad(appUser);
-        sendMail(payload.getPayload());
+        throwErrorIfStatusCodeNotValid(sendMail(payload.getPayload()));
     }
     
     public void sendNewPasswordMail(AppUser appUser) {
@@ -33,7 +33,7 @@ public class MailService {
         sendMail(payload.getPayload());
     }
 
-    public void sendMail(String payload) {
+    public Response sendMail(String payload) {
         try {
             SendGrid sg = new SendGrid(apiKey);
             Request request = new Request();
@@ -44,8 +44,20 @@ public class MailService {
             System.out.println(response.getStatusCode());
             System.out.println(response.getBody());
             System.out.println(response.getHeaders());
+            return response;
         } catch (IOException ex) {
             throw new ResponseStatusException(BAD_REQUEST, ex.getMessage());
         }
+    }
+
+    /**
+     * Check if the status code from the request starts with 2
+     * @param response the response to check the status code of
+     * @return
+     */
+    public void throwErrorIfStatusCodeNotValid(Response response) {
+        char c = String.valueOf(response.getStatusCode()).charAt(0);
+        if (c != '2') throw new InternalError("could not send email");
+
     }
 }
