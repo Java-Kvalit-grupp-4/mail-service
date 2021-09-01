@@ -37,12 +37,12 @@ public class MailService {
     
     public void sendNewPasswordMail(AppUser appUser) {
         NewPasswordPayLoad payload = new NewPasswordPayLoad(appUser, PASSWORD_RESET_TEMPLATE_ID);
-        sendMail(payload.getPayload());
+        throwErrorIfStatusCodeNotValid(sendMail(payload.getPayload()));
     }
 
     public void sendUpdateUserInfoMail(AppUser appUser) {
         UpdateUserInformationPayLoad payload = new UpdateUserInformationPayLoad(appUser, UPDATE_USER_INFORMATION_TEMPLATE_ID);
-        sendMail(payload.getPayload());
+        throwErrorIfStatusCodeNotValid(sendMail(payload.getPayload()));
     }
 
     public Response sendMail(String payload) {
