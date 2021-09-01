@@ -16,7 +16,7 @@ public class MailResource {
     private final MailService mailService;
 
     @PostMapping("/send/create")
-    public ResponseEntity<?> sendEmail(@RequestBody AppUser appUser) {
+    public ResponseEntity<?> sendCreateAccount(@RequestBody AppUser appUser) {
         mailService.sendCreateAccountMail(appUser);
         // TODO: 2021-09-01 send error msg if mail dident go thro
         final String msg = String.format("Mail sent to %s for creating account", appUser.getMail());
