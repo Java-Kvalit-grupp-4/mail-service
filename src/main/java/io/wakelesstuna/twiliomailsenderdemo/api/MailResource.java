@@ -44,9 +44,9 @@ public class MailResource {
     
     @PostMapping("/info/change")
     public ResponseEntity<?> sendInfoChangeNotification(@RequestBody AppUser appUser) {
-        mailService.sendCreateAccountMail(appUser);
+        mailService.sendUpdateUserInfoMail(appUser);
         // TODO: 2021-09-01 send error msg if mail dident go thro
-        final String msg = String.format("Change notification sent for account %s", appUser.getMail());
+        final String msg = String.format("Change userinformation sent for account %s", appUser.getMail());
         log.info(msg);
         return ResponseEntity.ok(msg);
     }

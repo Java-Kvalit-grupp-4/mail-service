@@ -12,4 +12,8 @@ public class AppUser {
     private String firstname;
     private String lastname;
     private String password;
+    private String address;
+    private String zip;
+    private String city;
+    private String phonenumber;
 }
