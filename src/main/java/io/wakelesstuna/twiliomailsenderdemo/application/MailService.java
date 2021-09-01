@@ -7,6 +7,7 @@ import com.sendgrid.SendGrid;
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 import io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate.CreateAccountPayLoad;
 import io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate.NewPasswordPayLoad;
+import io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate.UpdateUserInformationPayLoad;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
