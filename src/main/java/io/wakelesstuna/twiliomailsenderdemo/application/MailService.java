@@ -53,7 +53,7 @@ public class MailService {
     /**
      * Check if the status code from the request starts with 2
      * @param response the response to check the status code of
-     * @return
+     * @throws InternalError if status code does not start with 2
      */
     public void throwErrorIfStatusCodeNotValid(Response response) {
         char c = String.valueOf(response.getStatusCode()).charAt(0);
