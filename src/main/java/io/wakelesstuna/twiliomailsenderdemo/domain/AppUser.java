@@ -11,4 +11,5 @@ public class AppUser {
     private String mail;
     private String firstname;
     private String lastname;
+    private String password;
 }

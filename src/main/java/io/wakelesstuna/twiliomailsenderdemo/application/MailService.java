@@ -6,6 +6,7 @@ import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 import io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate.CreateAccountPayLoad;
+import io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate.NewPasswordPayLoad;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,11 @@ public class MailService {
     public void sendCreateAccountMail(AppUser appUser) {
         CreateAccountPayLoad payload = new CreateAccountPayLoad(appUser);
         sendMail(payload.getPayload());
-
+    }
+    
+    public void sendNewPasswordMail(AppUser appUser) {
+        NewPasswordPayLoad payload = new NewPasswordPayLoad(appUser);
+        sendMail(payload.getPayload());
     }
 
     public void sendMail(String payload) {
