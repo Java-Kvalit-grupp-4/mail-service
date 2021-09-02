@@ -1,5 +1,6 @@
 package io.wakelesstuna.twiliomailsenderdemo.domain;
 
+import io.wakelesstuna.twiliomailsenderdemo.api.OrderDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -16,4 +17,5 @@ public class AppUser {
     private String zip;
     private String city;
     private String phonenumber;
+    private OrderDto order;
 }

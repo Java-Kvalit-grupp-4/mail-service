@@ -34,10 +34,11 @@ public class MailResource {
     }
     
     @PostMapping("/order")
-    public ResponseEntity<?> sendOrder(@RequestBody AppUser appUser) {
-        mailService.sendCreateAccountMail(appUser);
+    public ResponseEntity<?> sendOrder(@RequestBody OrderDto order) {
+        System.out.println(order.toString());
+        mailService.sendOrderConfirmMail(order);
         // TODO: 2021-09-01 send error msg if mail dident go thro
-        final String msg = String.format("Order details sent for account %s", appUser.getMail());
+        final String msg = String.format("Order details sent for account %s", order.getMail());
         log.info(msg);
         return ResponseEntity.ok(msg);
     }
