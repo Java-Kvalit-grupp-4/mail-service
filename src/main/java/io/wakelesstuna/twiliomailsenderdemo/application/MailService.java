@@ -23,19 +23,25 @@ public class MailService {
 
     @Value(value = "${twilio.api-key}")
     private String apiKey;
+    @Value(value = "${create_account_id}")
+    private String CREATE_ACCOUNT_TEMPLATE_ID;
+    @Value(value = "${password_reset_template_id}")
+    private String PASSWORD_RESET_TEMPLATE_ID;
+    @Value(value = "${update_user_information_template_id}")
+    private String UPDATE_USER_INFORMATION_TEMPLATE_ID;
 
     public void sendCreateAccountMail(AppUser appUser) {
-        CreateAccountPayLoad payload = new CreateAccountPayLoad(appUser);
+        CreateAccountPayLoad payload = new CreateAccountPayLoad(appUser, CREATE_ACCOUNT_TEMPLATE_ID);
         throwErrorIfStatusCodeNotValid(sendMail(payload.getPayload()));
     }
     
     public void sendNewPasswordMail(AppUser appUser) {
-        NewPasswordPayLoad payload = new NewPasswordPayLoad(appUser);
+        NewPasswordPayLoad payload = new NewPasswordPayLoad(appUser, PASSWORD_RESET_TEMPLATE_ID);
         sendMail(payload.getPayload());
     }
 
     public void sendUpdateUserInfoMail(AppUser appUser) {
-        UpdateUserInformationPayLoad payload = new UpdateUserInformationPayLoad(appUser);
+        UpdateUserInformationPayLoad payload = new UpdateUserInformationPayLoad(appUser, UPDATE_USER_INFORMATION_TEMPLATE_ID);
         sendMail(payload.getPayload());
     }
 
@@ -64,6 +70,5 @@ public class MailService {
     public void throwErrorIfStatusCodeNotValid(Response response) {
         char c = String.valueOf(response.getStatusCode()).charAt(0);
         if (c != '2') throw new InternalError("could not send email");
-
     }
 }

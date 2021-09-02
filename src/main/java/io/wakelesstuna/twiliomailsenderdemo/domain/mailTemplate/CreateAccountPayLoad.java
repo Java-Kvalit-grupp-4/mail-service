@@ -2,14 +2,11 @@ package io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate;
 
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 
-import static io.wakelesstuna.twiliomailsenderdemo.TwilioMailSenderDemoApplication.dotenv;
-
 public class CreateAccountPayLoad {
 
     private final String payload;
 
-    public CreateAccountPayLoad(AppUser appUser) {
-        String templateId = dotenv.get("create_account_template_id");
+    public CreateAccountPayLoad(AppUser appUser, String templateId) {
 
         this.payload = "" +
                 "{\n" +

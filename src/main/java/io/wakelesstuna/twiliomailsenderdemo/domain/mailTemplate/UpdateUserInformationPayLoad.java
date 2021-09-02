@@ -2,14 +2,11 @@ package io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate;
 
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 
-import static io.wakelesstuna.twiliomailsenderdemo.TwilioMailSenderDemoApplication.dotenv;
-
 public class UpdateUserInformationPayLoad {
 
     private final String payload;
 
-    public UpdateUserInformationPayLoad(AppUser appUser) {
-        String templateId = dotenv.get("update_userinformation_template_id");
+    public UpdateUserInformationPayLoad(AppUser appUser, String templateId) {
 
         this.payload = "" +
                 "{\n" +

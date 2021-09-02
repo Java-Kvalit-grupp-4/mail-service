@@ -2,14 +2,11 @@ package io.wakelesstuna.twiliomailsenderdemo.domain.mailTemplate;
 
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 
-import static io.wakelesstuna.twiliomailsenderdemo.TwilioMailSenderDemoApplication.dotenv;
-
 public class NewPasswordPayLoad {
 
     private final String payload;
 
-    public NewPasswordPayLoad(AppUser appUser) {
-        String templateId = dotenv.get("password_reset_template_id");
+    public NewPasswordPayLoad(AppUser appUser, String templateId) {
 
         this.payload = "" +
                 "{\n" +
