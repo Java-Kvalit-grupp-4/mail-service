@@ -1,15 +1,15 @@
-package io.wakelesstuna.twiliomailsenderdemo.api;
+package io.wakelesstuna.twiliomailsenderdemo.domain;
 
-import io.wakelesstuna.twiliomailsenderdemo.domain.LineItem.LineItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class OrderDto {
+public class Order {
 
     private String firstname;
     private String lastname;
@@ -19,8 +19,9 @@ public class OrderDto {
     private String city;
     private String phoneNumber;
 
-    private LocalDate dateOfOrder;
+    private String dateOfOrder;
     private long orderNumber;
+    private String orderTotal;
     private List<LineItem> lineItem;
 
 }

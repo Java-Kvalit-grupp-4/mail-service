@@ -1,4 +1,4 @@
-package io.wakelesstuna.twiliomailsenderdemo.domain.LineItem;
+package io.wakelesstuna.twiliomailsenderdemo.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

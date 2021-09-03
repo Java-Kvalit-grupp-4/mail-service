@@ -5,10 +5,11 @@ import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
 import com.sendgrid.helpers.mail.Mail;
-import io.wakelesstuna.twiliomailsenderdemo.api.OrderDto;
+import io.wakelesstuna.twiliomailsenderdemo.domain.Order;
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 import io.wakelesstuna.twiliomailsenderdemo.domain.mail.Payload;
 import io.wakelesstuna.twiliomailsenderdemo.domain.mail.TemplateId;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 @Service
 @ComponentScan
+@Slf4j
 public class MailService {
 
     @Value(value = "${sender_email}")
@@ -45,8 +47,11 @@ public class MailService {
     }
 
 
-    public void sendOrderConfirmMail(OrderDto order) {
-        Payload payload = new Payload(senderEmail, "Order Confirmation", ORDER_CONFIRMATION_TEMPLATE_ID, order, TemplateId.ORDER_CONFIRMATION);
+    public void sendOrderConfirmMail(Order order) {
+        AppUser user = new AppUser();
+        user.setOrder(order);
+        user.setMail(order.getMail());
+        Payload payload = new Payload(senderEmail, "Order Confirmation", ORDER_CONFIRMATION_TEMPLATE_ID, user, TemplateId.ORDER_CONFIRMATION);
         throwErrorIfStatusCodeNotValid(sendMail(payload.getPayload()));
     }
 
@@ -82,9 +87,7 @@ public class MailService {
             request.setBody(payload.build());
             System.out.println(payload.build());
             Response response = sg.api(request);
-            System.out.println(response.getStatusCode());
-            System.out.println(response.getBody());
-            System.out.println(response.getHeaders());
+            log.info("status code: {}", response.getStatusCode());
             return response;
         } catch (IOException ex) {
             throw new ResponseStatusException(BAD_REQUEST, ex.getMessage());

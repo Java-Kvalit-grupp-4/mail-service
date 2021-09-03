@@ -1,7 +1,7 @@
 package io.wakelesstuna.twiliomailsenderdemo.domain.mail;
 
 import com.sendgrid.helpers.mail.objects.Personalization;
-import io.wakelesstuna.twiliomailsenderdemo.api.OrderDto;
+import io.wakelesstuna.twiliomailsenderdemo.domain.Order;
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
 
 public class Template {
@@ -63,15 +63,18 @@ public class Template {
      * @param order AppUser object to send the email to
      * @return Personalization object with all the variables used in the template
      */
-    public static Personalization getConfirmationOrderPersonalization(OrderDto order) {
+    public static Personalization getConfirmationOrderPersonalization(Order order) {
         Personalization personalization = new Personalization();
         personalization.addDynamicTemplateData("user_firstname", order.getFirstname());
         personalization.addDynamicTemplateData("user_lastname", order.getFirstname());
         personalization.addDynamicTemplateData("user_email", order.getMail());
-        personalization.addDynamicTemplateData("user_phone_number", order.getCity());
+        personalization.addDynamicTemplateData("user_phone_number", order.getPhoneNumber());
         personalization.addDynamicTemplateData("user_address", order.getAddress());
         personalization.addDynamicTemplateData("user_zipcode", order.getZip());
         personalization.addDynamicTemplateData("user_city", order.getCity());
+        personalization.addDynamicTemplateData("order_number", order.getOrderNumber());
+        personalization.addDynamicTemplateData("date_of_order", order.getDateOfOrder());
+        personalization.addDynamicTemplateData("order_total", order.getOrderTotal());
         personalization.addDynamicTemplateData("line_item", order.getLineItem());
 
         getAdminData(personalization);
