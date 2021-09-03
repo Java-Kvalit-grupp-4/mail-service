@@ -12,9 +12,6 @@ public class Payload {
 
     private final Mail mail;
 
-    public Payload() {
-        throw new IllegalArgumentException("empty constructor not allowed");
-    }
 
     public Payload(String from,String subject, String templateId, AppUser user, TemplateId templateEnum) {
         mail = new Mail();

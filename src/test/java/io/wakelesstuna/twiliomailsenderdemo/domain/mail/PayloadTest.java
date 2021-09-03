@@ -10,13 +10,6 @@ class PayloadTest {
 
     Payload payload;
 
-
-
-    @Test
-    void emptyConstructorThrowsTest() {
-        assertThrows(IllegalArgumentException.class, () -> payload = new Payload());
-    }
-
     @Test
     void createPayloadWithUser() {
         String expected = "from";
