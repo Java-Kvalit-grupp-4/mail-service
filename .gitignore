@@ -7,7 +7,6 @@ target/
 src/main/resources/application.properties
 Docker-compose.ymal
 
-
 ### STS ###
 .apt_generated
 .classpath
