@@ -2,6 +2,7 @@ package io.wakelesstuna.twiliomailsenderdemo.api;
 
 import io.wakelesstuna.twiliomailsenderdemo.application.MailService;
 import io.wakelesstuna.twiliomailsenderdemo.domain.AppUser;
+import io.wakelesstuna.twiliomailsenderdemo.domain.Order;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,26 +19,23 @@ public class MailResource {
     @PostMapping("/account/create")
     public ResponseEntity<?> sendCreateAccount(@RequestBody AppUser appUser) {
         mailService.sendCreateAccountMail(appUser);
-        // TODO: 2021-09-01 send error msg if mail dident go thro
         final String msg = String.format("Mail sent to %s for creating account", appUser.getMail());
         log.info(msg);
-        return ResponseEntity.ok(msg);
+        return ResponseEntity.ok(new ResponseDto(msg));
     }
     
     @PostMapping("/account/password_reset_request")
     public ResponseEntity<?> sendPasswordResetRequest(@RequestBody AppUser appUser) {
         mailService.sendNewPasswordMail(appUser);
-        // TODO: 2021-09-01 send error msg if mail dident go thro
         final String msg = String.format("Reset link sent for account %s", appUser.getMail());
         log.info(msg);
-        return ResponseEntity.ok(msg);
+        return ResponseEntity.ok(new ResponseDto(msg));
     }
     
     @PostMapping("/order")
-    public ResponseEntity<?> sendOrder(@RequestBody AppUser appUser) {
-        mailService.sendCreateAccountMail(appUser);
-        // TODO: 2021-09-01 send error msg if mail dident go thro
-        final String msg = String.format("Order details sent for account %s", appUser.getMail());
+    public ResponseEntity<?> sendOrder(@RequestBody Order order) {
+        mailService.sendOrderConfirmMail(order);
+        final String msg = String.format("Order details sent for account %s", order.getMail());
         log.info(msg);
         return ResponseEntity.ok(msg);
     }
@@ -45,8 +43,7 @@ public class MailResource {
     @PostMapping("/info/change")
     public ResponseEntity<?> sendInfoChangeNotification(@RequestBody AppUser appUser) {
         mailService.sendUpdateUserInfoMail(appUser);
-        // TODO: 2021-09-01 send error msg if mail dident go thro
-        final String msg = String.format("Change userinformation sent for account %s", appUser.getMail());
+        final String msg = String.format("Change user information sent for account %s", appUser.getMail());
         log.info(msg);
         return ResponseEntity.ok(msg);
     }

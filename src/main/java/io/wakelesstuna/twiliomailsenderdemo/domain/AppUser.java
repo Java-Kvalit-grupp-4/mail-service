@@ -16,4 +16,5 @@ public class AppUser {
     private String zip;
     private String city;
     private String phonenumber;
+    private Order order;
 }
