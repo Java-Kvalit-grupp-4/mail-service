@@ -18,7 +18,7 @@ public class MailResource {
 
     @GetMapping
     public ResponseEntity<String> getWelcomeMsg() {
-        return ResponseEntity.ok().body("Welcome to hakim livs mail server!");
+        return ResponseEntity.ok().body("Welcome to hakim livs mail server! t");
     }
 
     @PostMapping("/account/create")
