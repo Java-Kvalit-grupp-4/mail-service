@@ -16,11 +16,6 @@ public class MailResource {
 
     private final MailService mailService;
 
-    /*@GetMapping
-    public ResponseEntity<String> getWelcomeMsg() {
-        return ResponseEntity.ok().body("Welcome to hakim livs mail server! t");
-    }*/
-
     @PostMapping("/account/create")
     public ResponseEntity<?> sendCreateAccount(@RequestBody AppUser appUser) {
         mailService.sendCreateAccountMail(appUser);
@@ -42,7 +37,7 @@ public class MailResource {
         mailService.sendOrderConfirmMail(order);
         final String msg = String.format("Order details sent for account %s", order.getMail());
         log.info(msg);
-        return ResponseEntity.ok(msg);
+        return ResponseEntity.ok(new ResponseDto(msg));
     }
     
     @PostMapping("/info/change")
@@ -50,6 +45,6 @@ public class MailResource {
         mailService.sendUpdateUserInfoMail(appUser);
         final String msg = String.format("Change user information sent for account %s", appUser.getMail());
         log.info(msg);
-        return ResponseEntity.ok(msg);
+        return ResponseEntity.ok(new ResponseDto(msg));
     }
 }

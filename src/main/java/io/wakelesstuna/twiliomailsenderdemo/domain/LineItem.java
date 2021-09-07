@@ -1,6 +1,5 @@
 package io.wakelesstuna.twiliomailsenderdemo.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LineItem {
-
     private String productName;
     private int quantity;
     private double productPrice;
