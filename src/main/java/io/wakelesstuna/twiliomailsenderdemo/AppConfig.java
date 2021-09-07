@@ -37,6 +37,7 @@ public class AppConfig {
 
     @Bean
     public MailService mailService() {
+
         return new MailService(senderEmail,apiKey,CREATE_ACCOUNT_TEMPLATE_ID, PASSWORD_RESET_TEMPLATE_ID, UPDATE_USER_INFORMATION_TEMPLATE_ID, ORDER_CONFIRMATION_TEMPLATE_ID);
     }
 
