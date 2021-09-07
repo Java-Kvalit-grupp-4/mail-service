@@ -1,0 +1,17 @@
+# docker version
+version: '3'
+
+services:
+  mail-service:
+    container_name: bank_app
+    image: wakelesstuna/mail-service:v1
+    ports:
+      - 8081:8080
+    environment:
+      twilio_api_key: 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
+      sender_email: hakimlivs@gmail.com
+      create_account_template_id: d-3ff311c343574b3c9560a43cab1c27c8
+      password_reset_template_id: d-5e478c7401bf4a2595ccf11fb648a757
+      update_user_information_template_id: d-c64f90700c29445bba9d0a7ad286cad8
+      order_confirm_template_id: d-ef6205b461324044a6934102626283b3
+      SPRING_PROFILES_ACTIVE: prod
