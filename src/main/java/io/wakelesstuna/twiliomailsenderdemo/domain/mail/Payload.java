@@ -12,7 +12,6 @@ public class Payload {
 
     private final Mail mail;
 
-
     public Payload(String from,String subject, String templateId, AppUser user, TemplateId templateEnum) {
         mail = new Mail();
         // select with personalization we wanna use

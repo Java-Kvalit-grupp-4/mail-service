@@ -19,19 +19,12 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @Slf4j
 public class MailService {
 
-    //@Value(value = "${sender_email}")
-    private String senderEmail;
-    //@Value(value = "${twilio_api_key}")
-    private String apiKey;
-    //@Value(value = "${create_account_template_id}")
-    private String CREATE_ACCOUNT_TEMPLATE_ID;
-    //@Value(value = "${password_reset_template_id}")
-    private String PASSWORD_RESET_TEMPLATE_ID;
-    //@Value(value = "${update_user_information_template_id}")
-    private String UPDATE_USER_INFORMATION_TEMPLATE_ID;
-    //@Value(value = "${order_confirm_template_id}")
-    private String ORDER_CONFIRMATION_TEMPLATE_ID;
-
+    private final String senderEmail;
+    private final String apiKey;
+    private final String CREATE_ACCOUNT_TEMPLATE_ID;
+    private final String PASSWORD_RESET_TEMPLATE_ID;
+    private final String UPDATE_USER_INFORMATION_TEMPLATE_ID;
+    private final String ORDER_CONFIRMATION_TEMPLATE_ID;
 
     public MailService(String senderEmail, String apiKey, String CREATE_ACCOUNT_TEMPLATE_ID, String PASSWORD_RESET_TEMPLATE_ID, String UPDATE_USER_INFORMATION_TEMPLATE_ID, String ORDER_CONFIRMATION_TEMPLATE_ID) {
         this.senderEmail = senderEmail;
@@ -90,7 +83,6 @@ public class MailService {
             request.setMethod(Method.POST);
             request.setEndpoint("mail/send");
             request.setBody(payload.build());
-            System.out.println(payload.build());
             Response response = sg.api(request);
             log.info("status code: {}", response.getStatusCode());
             return response;
