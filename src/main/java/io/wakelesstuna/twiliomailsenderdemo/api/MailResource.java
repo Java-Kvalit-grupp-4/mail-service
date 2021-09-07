@@ -16,6 +16,11 @@ public class MailResource {
 
     private final MailService mailService;
 
+    @GetMapping
+    public ResponseEntity<String> getWelcomeMsg() {
+        return ResponseEntity.ok().body("Welcome to hakim livs mail server");
+    }
+
     @PostMapping("/account/create")
     public ResponseEntity<?> sendCreateAccount(@RequestBody AppUser appUser) {
         mailService.sendCreateAccountMail(appUser);
