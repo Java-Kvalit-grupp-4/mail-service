@@ -16,7 +16,7 @@ public class Template {
     public static Personalization getCreateAccountPersonalization(AppUser user) {
         Personalization personalization = new Personalization();
         personalization.addDynamicTemplateData("user_firstname", user.getFirstname());
-        personalization.addDynamicTemplateData("user_lastname", user.getFirstname());
+        personalization.addDynamicTemplateData("user_lastname", user.getLastname());
         getAdminData(personalization);
         return personalization;
     }
@@ -31,8 +31,8 @@ public class Template {
     public static Personalization getUpdateUserInformationPersonalization(AppUser user) {
         Personalization personalization = new Personalization();
         personalization.addDynamicTemplateData("user_firstname", user.getFirstname());
-        personalization.addDynamicTemplateData("user_lastname", user.getFirstname());
-        personalization.addDynamicTemplateData("user_phone_number", user.getCity());
+        personalization.addDynamicTemplateData("user_lastname", user.getLastname());
+        personalization.addDynamicTemplateData("user_phone_number", user.getPhonenumber());
         personalization.addDynamicTemplateData("user_address", user.getAddress());
         personalization.addDynamicTemplateData("user_zipcode", user.getZip());
         personalization.addDynamicTemplateData("user_city", user.getCity());
@@ -50,7 +50,7 @@ public class Template {
     public static Personalization getNewPasswordPersonalization(AppUser user) {
         Personalization personalization = new Personalization();
         personalization.addDynamicTemplateData("user_firstname", user.getFirstname());
-        personalization.addDynamicTemplateData("user_lastname", user.getFirstname());
+        personalization.addDynamicTemplateData("user_lastname", user.getLastname());
         personalization.addDynamicTemplateData("user_password", user.getPassword());
         getAdminData(personalization);
         return personalization;
@@ -66,7 +66,7 @@ public class Template {
     public static Personalization getConfirmationOrderPersonalization(Order order) {
         Personalization personalization = new Personalization();
         personalization.addDynamicTemplateData("user_firstname", order.getFirstname());
-        personalization.addDynamicTemplateData("user_lastname", order.getFirstname());
+        personalization.addDynamicTemplateData("user_lastname", order.getLastname());
         personalization.addDynamicTemplateData("user_email", order.getMail());
         personalization.addDynamicTemplateData("user_phone_number", order.getPhoneNumber());
         personalization.addDynamicTemplateData("user_address", order.getAddress());
