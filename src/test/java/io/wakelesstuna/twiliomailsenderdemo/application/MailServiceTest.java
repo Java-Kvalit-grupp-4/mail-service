@@ -13,10 +13,10 @@ class MailServiceTest {
     @Mock
     MailService mailService;
 
-    @BeforeEach
+    /*@BeforeEach
     void init() {
-        mailService = new MailService();
-    }
+        mailService = new MailService(senderEmail, apiKey, create_account_template_id, password_reset_template_id, update_user_information_template_id, order_confirmation_template_id);
+    }*/
 
     @Test
     void throwErrorIfStatusCodeNotValidThrowErrorTest() {

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.sendgrid.sender-email",
+      "type": "java.lang.String",
+      "description": "Description for spring.sendgrid.sender-email."
+  }
+] }

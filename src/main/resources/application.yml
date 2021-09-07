@@ -1,0 +1,11 @@
+spring:
+  sendgrid:
+    api-key: ${SENDGRID_API_KEY}
+    sender-email: ${SENDER_EMAIL}
+    create-account-template-id: ${CREATE_ACCOUNT_TEMPLATE_ID}
+    password-reset-template-id: ${PASSWORD_RESET_TEMPLATE_ID}
+    update-user-information-template-id: ${UPDATE_USER_INFORMATION_TEMPLATE_ID}
+    order-confirm-template-id: ${ORDER_CONFIRM_TEMPLATE_ID}
+server:
+  error:
+    include-message: always
