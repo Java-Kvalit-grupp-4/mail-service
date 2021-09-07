@@ -15,10 +15,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "hakim-mail-server" #Must be unique in Heroku
           heroku_email: "hakimlivs@gmail.com"
-        env:
-          spring.sendgrid.twilio_api_key: ${{secrets.HEROKU_API_KEY}}
-          spring.sendgrid.sender_email: ${{secrets.SENDER_EMAIL}}
-          spring.sendgrid.create_account_template_id: ${{secrets.CREATE_ACCOUNT_TEMPLATE_ID}}
-          spring.sendgrid.password_reset_template_id: ${{secrets.PASSWORD_RESET_TEMPLATE_ID}}
-          spring.sendgrid.update_user_information_template_id: ${{secrets.UPDATE_USER_INFORMATION_TEMPLATE_ID}}
-          spring.sendgrid.order_confirm_template_id: ${{secrets.ORDER_CONFIRM_TEMPLATE_ID}}
