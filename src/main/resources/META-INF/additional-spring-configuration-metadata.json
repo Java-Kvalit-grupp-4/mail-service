@@ -3,6 +3,6 @@
     {
       "name": "spring.sendgrid.sender-email",
       "type": "java.lang.String",
-      "description": "Description for spring.sendgrid.sender-email."
-  }
-] }
+      "description": "This is the email to use when you send emails from twilio. This need to be setup in Twilio so you can use it. It needs to be verifyed"
+    }
+  ] }

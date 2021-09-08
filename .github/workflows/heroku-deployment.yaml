@@ -15,10 +15,10 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-#        env: # Only run the variables once or else they get duplicated on heroku
-#          HD_spring.sendgrid.api-key: ${{secrets.TWILIO_API_KEY}}
-#          HD_spring.sendgrid.sender-email: ${{secrets.SENDER_EMAIL}}
-#          HD_spring.sendgrid.create-account-template-id: ${{secrets.CREATE_ACCOUNT_TEMPLATE_ID}}
-#          HD_spring.sendgrid.password-reset-template-id: ${{secrets.PASSWORD_RESET_TEMPLATE_ID}}
-#          HD_spring.sendgrid.update-user-information-template-id: ${{secrets.UPDATE_USER_INFORMATION_TEMPLATE_ID}}
-#          HD_spring.sendgrid.order-confirm-template-id: ${{secrets.ORDER_CONFIRM_TEMPLATE_ID}}
+        env: # Only run the variables once or else they get duplicated on heroku
+          HD_spring.sendgrid.api-key: ${{secrets.TWILIO_API_KEY}}
+          HD_spring.sendgrid.sender-email: ${{secrets.SENDER_EMAIL}}
+          HD_spring.sendgrid.create-account-template-id: ${{secrets.CREATE_ACCOUNT_TEMPLATE_ID}}
+          HD_spring.sendgrid.password-reset-template-id: ${{secrets.PASSWORD_RESET_TEMPLATE_ID}}
+          HD_spring.sendgrid.update-user-information-template-id: ${{secrets.UPDATE_USER_INFORMATION_TEMPLATE_ID}}
+          HD_spring.sendgrid.order-confirm-template-id: ${{secrets.ORDER_CONFIRM_TEMPLATE_ID}}
