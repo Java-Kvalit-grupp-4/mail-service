@@ -16,9 +16,9 @@ jobs:
           heroku_app_name: "hakim-mail-server-2" #Must be unique in Heroku
           heroku_email: "hakimlivs@gmail.com"
         env:
-          HD_spring.sendgrid.twilio_api_key: ${{secrets.TWILIO_API_KEY}}
-          HD_spring.sendgrid.sender_email: ${{secrets.SENDER_EMAIL}}
-          HD_spring.sendgrid.create_account_template_id: ${{secrets.CREATE_ACCOUNT_TEMPLATE_ID}}
-          HD_spring.sendgrid.password_reset_template_id: ${{secrets.PASSWORD_RESET_TEMPLATE_ID}}
-          HD_spring.sendgrid.update_user_information_template_id: ${{secrets.UPDATE_USER_INFORMATION_TEMPLATE_ID}}
-          HD_spring.sendgrid.order_confirm_template_id: ${{secrets.ORDER_CONFIRM_TEMPLATE_ID}}
+          HD_spring.sendgrid.api-key: ${{secrets.TWILIO_API_KEY}}
+          HD_spring.sendgrid.sender-email: ${{secrets.SENDER_EMAIL}}
+          HD_spring.sendgrid.create-account-template-id: ${{secrets.CREATE_ACCOUNT_TEMPLATE_ID}}
+          HD_spring.sendgrid.password-reset-template-id: ${{secrets.PASSWORD_RESET_TEMPLATE_ID}}
+          HD_spring.sendgrid.update-user-information-template-id: ${{secrets.UPDATE_USER_INFORMATION_TEMPLATE_ID}}
+          HD_spring.sendgrid.order-confirm-template-id: ${{secrets.ORDER_CONFIRM_TEMPLATE_ID}}
